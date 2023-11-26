@@ -1,0 +1,57 @@
+CHIP Clz
+{
+	IN in[16];
+	OUT out[16];
+	PARTS:
+	Or(a = in[15], b = false, out = or1);
+	Or(a = in[14], b = or1, out = or2);
+	Or(a = in[13], b = or2, out = or3);
+	Or(a = in[12], b = or3, out = or4);
+	Or(a = in[11], b = or4, out = or5);
+	Or(a = in[10], b = or5, out = or6);
+	Or(a = in[9], b = or6, out = or7);
+	Or(a = in[8], b = or7, out = or8);
+	Or(a = in[7], b = or8, out = or9);
+	Or(a = in[6], b = or9, out = or10);
+	Or(a = in[5], b = or10, out = or11);
+	Or(a = in[4], b = or11, out = or12);
+	Or(a = in[3], b = or12, out = or13);
+	Or(a = in[2], b = or13, out = or14);
+	Or(a = in[1], b = or14, out = or15);
+	Or(a = in[0], b = or15, out = or16);
+	
+	
+	Mux(a = true, b = false, sel = or1, out = mux1);
+	Mux(a = true, b = false, sel = or2, out = mux2);
+	Mux(a = true, b = false, sel = or3, out = mux3);
+	Mux(a = true, b = false, sel = or4, out = mux4);
+	Mux(a = true, b = false, sel = or5, out = mux5);
+	Mux(a = true, b = false, sel = or6, out = mux6);
+	Mux(a = true, b = false, sel = or7, out = mux7);
+	Mux(a = true, b = false, sel = or8, out = mux8);
+	Mux(a = true, b = false, sel = or9, out = mux9);
+	Mux(a = true, b = false, sel = or10, out = mux10);
+	Mux(a = true, b = false, sel = or11, out = mux11);
+	Mux(a = true, b = false, sel = or12, out = mux12);
+	Mux(a = true, b = false, sel = or13, out = mux13);
+	Mux(a = true, b = false, sel = or14, out = mux14);
+	Mux(a = true, b = false, sel = or15, out = mux15);
+	Mux(a = true, b = false, sel = or16, out = mux16); 
+	
+	
+	Add16(a[0] = mux1, b[0] = mux2, out = add1);
+	Add16(a = add1, b[0] = mux3, out = add3);
+	Add16(a = add3, b[0] = mux4, out = add4);
+	Add16(a = add4, b[0] = mux5, out = add5);
+	Add16(a = add5, b[0] = mux6, out = add6);
+	Add16(a = add6, b[0] = mux7, out = add7);
+	Add16(a = add7, b[0] = mux8, out = add8);
+	Add16(a = add8, b[0] = mux9, out = add9);
+	Add16(a = add9, b[0] = mux10, out = add10);
+	Add16(a = add10, b[0] = mux11, out = add11);
+	Add16(a = add11, b[0] = mux12, out = add12);
+	Add16(a = add12, b[0] = mux13, out = add13);
+	Add16(a = add13, b[0] = mux14, out = add14);
+	Add16(a = add14, b[0] = mux15, out = add15);
+	Add16(a = add15, b[0] = mux16, out = out);
+}
