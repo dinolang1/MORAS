@@ -1,0 +1,14 @@
+sp
+call zad2c.Main 0
+ep
+
+function Main 0
+    push constant 16
+    push constant 3
+    call div_mod.Mod 2 // 16%3
+    pop static 0
+    push constant 37
+    push constant 7
+    call div_mod.Div 2 // 37/7
+    pop static 1
+    return
